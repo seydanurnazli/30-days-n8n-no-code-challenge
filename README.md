@@ -13,8 +13,11 @@ Her gün:
 | Gün | Proje | Açıklama |
 | 1️⃣ | [Toplu E-Posta Gönderici](./day01-bulk-email-sender) | Google Sheets + Gmail ile otomatik e-posta gönderimi |
 | 2️⃣ | 🔜 Yakında | – |
----
 
-Güncellemeleri takip edin.  
-Hazırlayan: [Şeyda](https://github.com/seydanurnazli) 💙  
+## Projenin Amacı
+Bu proje, n8n otomasyon aracı kullanılarak geliştirilmiş bir iş akışını (workflow) içermektedir. Projenin temel amacı, belirli bir Google Sheets tablosundan e-posta adreslerini otomatik olarak çekmek ve bu adreslere kişiselleştirilebilir toplu e-posta gönderimi yapmaktır.
+
+Bu otomasyon, manuel olarak tek tek e-posta gönderme zahmetini ortadan kaldırarak zaman kazandırmayı ve tekrar eden görevleri kolaylaştırmayı hedefler. İş akışı sayesinde, pazarlama kampanyaları, bilgilendirme bültenleri veya duyurular gibi toplu mail gönderimi gerektiren durumlar verimli bir şekilde yönetilebilir.
+  
+Hazırlayan: [Şeyda](https://github.com/seydanurnazli)  
 #n8n #NoCode #Otomasyon #30GünlükChallenge
