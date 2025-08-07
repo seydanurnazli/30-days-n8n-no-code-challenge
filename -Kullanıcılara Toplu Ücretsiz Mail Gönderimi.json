@@ -1,0 +1,169 @@
+{
+  "name": "-Kullanıcılara Toplu Ücretsiz Mail Gönderimi. copy",
+  "nodes": [
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -528,
+        -128
+      ],
+      "id": "ec34d258-e468-432e-9145-f9f0a7d6c7e3",
+      "name": "When clicking ‘Execute workflow’"
+    },
+    {
+      "parameters": {
+        "documentId": {
+          "__rl": true,
+          "value": "1vQmz2AWGa1UVtFnzvcaxRlc2JgqJ2iys-_vimp4K66g",
+          "mode": "list",
+          "cachedResultName": "mail tablosu",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vQmz2AWGa1UVtFnzvcaxRlc2JgqJ2iys-_vimp4K66g/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sayfa1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1vQmz2AWGa1UVtFnzvcaxRlc2JgqJ2iys-_vimp4K66g/edit#gid=0"
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheets",
+      "typeVersion": 4.6,
+      "position": [
+        -320,
+        -128
+      ],
+      "id": "2dd4d2ec-fb72-42d0-9558-d47d5914e630",
+      "name": "Get row(s) in sheet",
+      "credentials": {
+        "googleSheetsOAuth2Api": {
+          "id": "paoM28G1etJcgIBG",
+          "name": "Google Sheets account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        -112,
+        -128
+      ],
+      "id": "519fc950-f10f-459c-89b2-87578a91029b",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me",
+      "typeVersion": 1,
+      "position": [
+        144,
+        -128
+      ],
+      "id": "65355ebd-3c98-4108-b1e1-b2ac2ab57618"
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json['E-MAİL'] }}",
+        "subject": "merhabalar",
+        "emailType": "text",
+        "message": "Merhabalar ben şeyda.",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        144,
+        -368
+      ],
+      "id": "05cd566a-683e-4055-b6a1-0a26dc68f2d1",
+      "name": "Send a message",
+      "webhookId": "4afe93fd-834e-4721-bb48-83bf1292c794",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "6XUoavilMevDQOnP",
+          "name": "Gmail account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When clicking ‘Execute workflow’": {
+      "main": [
+        [
+          {
+            "node": "Get row(s) in sheet",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get row(s) in sheet": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "e1dbc7d7-efce-496f-a737-52019e1b606e",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6dfd44f6fb6b4c80136c37e6173b2d7958fe6eb49aa6e5c0eb669a4ddf50e099"
+  },
+  "id": "285rjXCHqIecnjia",
+  "tags": [
+    {
+      "createdAt": "2025-08-07T13:58:49.288Z",
+      "updatedAt": "2025-08-07T13:58:49.288Z",
+      "id": "a6h1IU2RSIQ4sdAz",
+      "name": "day 1/project 1"
+    }
+  ]
+}
